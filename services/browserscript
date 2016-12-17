@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+#!/bin/bash
+#
+# Starts the browser automation script
+#
+
+# Depends on selenium
+sv start selenium-server || exit 1
+
+
+exec chpst -u browserbot \
+    /var/auto-selenium-script/auto-selenium-run.sh \
+    | logger --stderr --tag auto-selenium-run
